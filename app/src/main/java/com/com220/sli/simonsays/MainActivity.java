@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     int numOfItems = 4; //LENGTH OF THE MEMORY SEQUENCE. WILL GROW BY 1 WITH EACH SUCCESSFUL 'WIN' BY THE USER
 
     Boolean gameStart = false;  //CONTROLS WHETHER THE USER CAN START INPUTTING (STARTS THE GAME)
+    Boolean keepGoing = true;
 
     int scoreLevel = 0;
     int puzzlePiece = 0;
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity
                 userSequenceString.setLength(0);
                 textView.setText("Score: ");
                 start.setText("Start");
+                keepGoing = true;
 
                 long runtimeSequence = (numOfItems * 1000) + 500; //DYNAMIC RUNTIME LENGTH BASED ON THE NUMBER OF ITEMS
                 new CountDownTimer(runtimeSequence, 1000)
@@ -217,13 +219,32 @@ public class MainActivity extends AppCompatActivity
         if(gameStart == true)
         {
             userSequence.add(buttonNumber);
-            userSequenceString.append(buttonNumber + "");
-            numUserInputs++;
-            textView.setText(userSequenceString.toString());
+            if(randomSequence.get(numUserInputs).intValue() != buttonNumber)
+            {
+                puzzlePiece = 0;
+                randomSequence.clear();
+                randomSequenceString.setLength(0);
+                userSequence.clear();
+                userSequenceString.setLength(0);
+                numOfItems = 4;
+                numUserInputs = 0;
+                gameStart = false;
+                scoreLevel = 0;
+                start.setText("Start New Game");
+                score.setText(0 + "");
+                textView.setText("Score: ");
+                keepGoing = false;
+            }
+            if(keepGoing == true)
+            {
+                userSequenceString.append(buttonNumber + "");
+                numUserInputs++;
+                textView.setText(userSequenceString.toString());
+            }
         }
         else    //User can click the buttons but no input occurs
         {
-
+            //start.setText("Play the game!");
         }
         if(numUserInputs >= numOfItems)
         {
@@ -250,6 +271,7 @@ public class MainActivity extends AppCompatActivity
                             start.setText("Start Level: " + scoreLevel);
                             score.setText(0 + "");
                             textView.setText("Score: ");
+                            break;
                         }
                     }
                     else
