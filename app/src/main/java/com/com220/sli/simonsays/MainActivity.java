@@ -39,10 +39,11 @@ public class MainActivity extends AppCompatActivity
     int numOfItems = 4; //LENGTH OF THE MEMORY SEQUENCE. WILL GROW BY 1 WITH EACH SUCCESSFUL 'WIN' BY THE USER
 
     Boolean gameStart = false;  //CONTROLS WHETHER THE USER CAN START INPUTTING (STARTS THE GAME)
-    Boolean keepGoing = true;
 
     int scoreLevel = 0;
     int puzzlePiece = 0;
+    int tempUS = 0;
+    int tempRS = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -142,7 +143,8 @@ public class MainActivity extends AppCompatActivity
                 bottomLeft.clearAnimation();
                 bottomRight.clearAnimation();
                 int buttonNumber = 0;
-                try {
+                try
+                {
                     compareSequences(buttonNumber);
                 }
                 catch(IndexOutOfBoundsException e)
@@ -167,7 +169,8 @@ public class MainActivity extends AppCompatActivity
                 catch(IndexOutOfBoundsException e)
                 {
                     start.setText("topRight Error");
-                }            }
+                }
+            }
         });
         bottomLeft.setOnClickListener(new View.OnClickListener()
         {
@@ -220,14 +223,14 @@ public class MainActivity extends AppCompatActivity
         }
         else    //User can click the buttons but no input occurs
         {
-            topLeft.setText("1");
+
         }
         if(numUserInputs >= numOfItems)
         {
             for(int i = 0; i < numOfItems; i++)
             {
-                int tempUS = userSequence.get(i).intValue();
-                int tempRS = randomSequence.get(i).intValue();
+                tempUS = userSequence.get(i).intValue();
+                tempRS = randomSequence.get(i).intValue();
                 try
                 {
                     if(tempUS == tempRS)
@@ -235,13 +238,14 @@ public class MainActivity extends AppCompatActivity
                         puzzlePiece++;
                         if(puzzlePiece == numOfItems)
                         {
+                            puzzlePiece = 0;
                             scoreLevel++;
                             randomSequence.clear();
                             randomSequenceString.setLength(0);
                             userSequence.clear();
                             userSequenceString.setLength(0);
-                            numOfItems++;
                             numUserInputs = 0;
+                            numOfItems++;
                             gameStart = false;
                             start.setText("Start Level: " + scoreLevel);
                             score.setText(0 + "");
@@ -250,8 +254,7 @@ public class MainActivity extends AppCompatActivity
                     }
                     else
                     {
-                        keepGoing = false;
-
+                        puzzlePiece = 0;
                         randomSequence.clear();
                         randomSequenceString.setLength(0);
                         userSequence.clear();
