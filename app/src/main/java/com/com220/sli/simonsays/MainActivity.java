@@ -213,6 +213,15 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
+        Button back = (Button)findViewById(R.id.mainClose);
+        back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
+            }
+        });
     }
 
     public void compareSequences(int buttonNumber)

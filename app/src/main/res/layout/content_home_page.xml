@@ -42,7 +42,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="SIMON"
-        android:textSize="110dp"
+        android:textAlignment="center"
+        android:textSize="80dp"
         android:id="@+id/title"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -50,4 +51,12 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/MainActivity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit Game"
+        android:id="@+id/homeClose"
+        android:layout_below="@+id/AboutPage"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

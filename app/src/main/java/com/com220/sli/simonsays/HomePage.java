@@ -61,5 +61,14 @@ public class HomePage extends AppCompatActivity
                 startActivity(aboutPage);
             }
         });
+        Button back = (Button)findViewById(R.id.homeClose);
+        back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
+            }
+        });
     }
 }

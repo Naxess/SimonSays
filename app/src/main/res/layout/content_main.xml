@@ -101,4 +101,13 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:id="@+id/mainClose"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/start"
+        android:layout_alignStart="@+id/start" />
+
 </RelativeLayout>

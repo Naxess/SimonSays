@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class ScorePage extends AppCompatActivity {
 
@@ -24,6 +25,14 @@ public class ScorePage extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Button back = (Button)findViewById(R.id.scoresClose);
+        back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
+            }
+        });
     }
-
 }
