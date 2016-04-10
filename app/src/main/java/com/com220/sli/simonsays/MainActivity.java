@@ -203,7 +203,8 @@ public class MainActivity extends AppCompatActivity
                 topRight.clearAnimation();
                 bottomLeft.clearAnimation();
                 int buttonNumber = 3;
-                try {
+                try
+                {
                     compareSequences(buttonNumber);
                 }
                 catch(IndexOutOfBoundsException e)
