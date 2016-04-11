@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity
     int tempUS = 0;
     int tempRS = 0;
 
+    MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smb_coin);
+    MediaPlayer soundTwo = MediaPlayer.create(this, R.raw.smb_fireball);
+    MediaPlayer soundThree = MediaPlayer.create(this, R.raw.smb_stomp);
+    MediaPlayer soundFour = MediaPlayer.create(this, R.raw.smb_kick);
+    MediaPlayer soundFive = MediaPlayer.create(this, R.raw.smb_powerup);
+    MediaPlayer soundSix = MediaPlayer.create(this, R.raw.smb_mariodie);
+    MediaPlayer soundSeven = MediaPlayer.create(this, R.raw.smb_pipe);
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -81,11 +89,6 @@ public class MainActivity extends AppCompatActivity
         //blink.setRepeatCount(Animation.ABSOLUTE); //or INFINITE
         //blink.setRepeatMode(Animation.REVERSE);
 
-        final MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smb_coin);
-        final MediaPlayer soundTwo = MediaPlayer.create(this, R.raw.smb_fireball);
-        final MediaPlayer soundThree = MediaPlayer.create(this, R.raw.smb_stomp);
-        final MediaPlayer soundFour = MediaPlayer.create(this, R.raw.smb_kick);
-
         start.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity
                 userSequenceString.setLength(0);
                 textView.setText("Score: ");
                 start.setText("Start");
+                soundSeven.start();
                 keepGoing = true;
 
                 long runtimeSequence = (numOfItems * 1000) + 500; //DYNAMIC RUNTIME LENGTH BASED ON THE NUMBER OF ITEMS
@@ -257,6 +261,7 @@ public class MainActivity extends AppCompatActivity
                 start.setText("Start New Game");
                 score.setText(0 + "");
                 textView.setText("Score: ");
+                soundSix.start();
                 keepGoing = false;
             }
             if(keepGoing == true)
@@ -295,6 +300,7 @@ public class MainActivity extends AppCompatActivity
                             start.setText("Start Level: " + scoreLevel);
                             score.setText(0 + "");
                             textView.setText("Score: ");
+                            soundFive.start();
                             break;
                         }
                     }
@@ -312,6 +318,7 @@ public class MainActivity extends AppCompatActivity
                         start.setText("Start New Game");
                         score.setText(0 + "");
                         textView.setText("Score: ");
+                        soundSix.start();
                         break;
                     }
                 }
