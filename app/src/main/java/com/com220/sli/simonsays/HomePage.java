@@ -54,7 +54,8 @@ public class HomePage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                soundEight.start();
+                //soundEight.start();
+                //soundSeven.start();
                 Intent scorePage = new Intent(getApplicationContext(), ScorePage.class);
                 startActivity(scorePage);
             }
@@ -64,7 +65,8 @@ public class HomePage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                soundNine.start();
+                //soundNine.start();
+                //soundSeven.start();
                 Intent aboutPage = new Intent(getApplicationContext(), AboutPage.class);
                 startActivity(aboutPage);
             }

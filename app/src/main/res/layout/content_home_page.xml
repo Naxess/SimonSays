@@ -31,7 +31,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:typeface="sans"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:contextClickable="false" />
 
     <Button
         android:layout_width="wrap_content"
