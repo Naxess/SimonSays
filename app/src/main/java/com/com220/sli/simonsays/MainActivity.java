@@ -1,5 +1,6 @@
 package com.com220.sli.simonsays;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
@@ -80,6 +81,11 @@ public class MainActivity extends AppCompatActivity
         //blink.setRepeatCount(Animation.ABSOLUTE); //or INFINITE
         //blink.setRepeatMode(Animation.REVERSE);
 
+        final MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smw_coin);
+        final MediaPlayer soundTwo = MediaPlayer.create(this, R.raw.smw_fireball);
+        final MediaPlayer soundThree = MediaPlayer.create(this, R.raw.smw_jump);
+        final MediaPlayer soundFour = MediaPlayer.create(this, R.raw.smw_kick);
+
         start.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -108,18 +114,22 @@ public class MainActivity extends AppCompatActivity
                         if(randomNumber == 0)
                         {
                             topLeft.startAnimation(blink);
+                            soundOne.start();
                         }
                         else if(randomNumber == 1)
                         {
                             topRight.startAnimation(blink);
+                            soundTwo.start();
                         }
                         else if(randomNumber == 2)
                         {
                             bottomLeft.startAnimation(blink);
+                            soundThree.start();
                         }
                         else if(randomNumber == 3)
                         {
                             bottomRight.startAnimation(blink);
+                            soundFour.start();
                         }
                         else    //FOR REDUNDANCY'S SAKE
                         {
@@ -147,6 +157,7 @@ public class MainActivity extends AppCompatActivity
                 int buttonNumber = 0;
                 try
                 {
+                    soundOne.start();
                     compareSequences(buttonNumber);
                 }
                 catch(IndexOutOfBoundsException e)
@@ -166,6 +177,7 @@ public class MainActivity extends AppCompatActivity
                 bottomRight.clearAnimation();
                 int buttonNumber = 1;
                 try {
+                    soundTwo.start();
                     compareSequences(buttonNumber);
                 }
                 catch(IndexOutOfBoundsException e)
@@ -185,6 +197,7 @@ public class MainActivity extends AppCompatActivity
                 bottomRight.clearAnimation();
                 int buttonNumber = 2;
                 try {
+                    soundThree.start();
                     compareSequences(buttonNumber);
                 }
                 catch(IndexOutOfBoundsException e)
@@ -205,6 +218,7 @@ public class MainActivity extends AppCompatActivity
                 int buttonNumber = 3;
                 try
                 {
+                    soundFour.start();
                     compareSequences(buttonNumber);
                 }
                 catch(IndexOutOfBoundsException e)
