@@ -21,10 +21,10 @@
         android:text="Start Game"
         android:id="@+id/start"
         android:layout_gravity="center_vertical"
+        android:layout_marginBottom="187dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/bottomleft_button"
-        android:layout_alignEnd="@+id/bottomleft_button"
-        android:layout_marginBottom="187dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/topleft_button"
@@ -43,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score: "
+        android:textSize="25dp"
         android:textColor="#990000"
         android:id="@+id/textView"
         android:layout_gravity="center_vertical"
@@ -54,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:textSize="25dp"
         android:id="@+id/score"
         android:layout_x="221dp"
         android:layout_y="464dp"
@@ -107,7 +109,7 @@
         android:text="Close"
         android:id="@+id/mainClose"
         android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/start"
-        android:layout_alignStart="@+id/start" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

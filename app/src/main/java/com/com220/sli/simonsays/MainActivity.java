@@ -81,10 +81,10 @@ public class MainActivity extends AppCompatActivity
         //blink.setRepeatCount(Animation.ABSOLUTE); //or INFINITE
         //blink.setRepeatMode(Animation.REVERSE);
 
-        final MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smw_coin);
-        final MediaPlayer soundTwo = MediaPlayer.create(this, R.raw.smw_fireball);
-        final MediaPlayer soundThree = MediaPlayer.create(this, R.raw.smw_jump);
-        final MediaPlayer soundFour = MediaPlayer.create(this, R.raw.smw_kick);
+        final MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smb_coin);
+        final MediaPlayer soundTwo = MediaPlayer.create(this, R.raw.smb_fireball);
+        final MediaPlayer soundThree = MediaPlayer.create(this, R.raw.smb_stomp);
+        final MediaPlayer soundFour = MediaPlayer.create(this, R.raw.smb_kick);
 
         start.setOnClickListener(new View.OnClickListener()
         {
