@@ -1,6 +1,7 @@
 package com.com220.sli.simonsays;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,10 @@ public class HomePage extends AppCompatActivity
         });
 
         Button play, score, aboutUs;
+        final MediaPlayer soundSeven = MediaPlayer.create(this, R.raw.smb_pipe);
+        final MediaPlayer soundEight = MediaPlayer.create(this, R.raw.smb_world_clear);
+        final MediaPlayer soundNine = MediaPlayer.create(this, R.raw.smb_stage_clear);
+        final MediaPlayer soundTen = MediaPlayer.create(this, R.raw.smb_bowserfalls);
 
         play = (Button)findViewById(R.id.MainActivity);
         score = (Button)findViewById(R.id.ScorePage);
@@ -39,6 +44,7 @@ public class HomePage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                soundSeven.start();
                 Intent playPage = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(playPage);
             }
@@ -48,6 +54,7 @@ public class HomePage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                soundEight.start();
                 Intent scorePage = new Intent(getApplicationContext(), ScorePage.class);
                 startActivity(scorePage);
             }
@@ -57,6 +64,7 @@ public class HomePage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                soundNine.start();
                 Intent aboutPage = new Intent(getApplicationContext(), AboutPage.class);
                 startActivity(aboutPage);
             }
@@ -67,6 +75,7 @@ public class HomePage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                soundTen.start();
                 finish();
             }
         });
