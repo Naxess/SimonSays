@@ -16,51 +16,62 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/titleimage"
-        android:id="@+id/imageView"
-        android:layout_above="@+id/space"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/imageTitle"
+        android:src="@drawable/titleimageclear"
+        android:layout_above="@+id/space" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play"
-        android:background="#ffffff"
+        android:textSize="30dp"
+        android:textColor="#ffc914"
+        android:background="@android:color/transparent"
         android:id="@+id/MainActivity"
-        android:layout_above="@+id/ScorePage"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:typeface="sans"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scores"
-        android:background="#ffffff"
+        android:textSize="30dp"
+        android:textColor="#ffc914"
+        android:background="@android:color/transparent"
         android:id="@+id/ScorePage"
-        android:layout_above="@+id/AboutPage"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/MainActivity"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About Us"
-        android:background="#ffffff"
+        android:textSize="30dp"
+        android:textColor="#ffc914"
+        android:background="@android:color/transparent"
         android:id="@+id/AboutPage"
-        android:layout_above="@+id/homeClose"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/ScorePage"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Exit Game"
-        android:background="#ffffff"
+        android:textSize="30dp"
+        android:textColor="#ffc914"
+        android:background="@android:color/transparent"
         android:id="@+id/homeClose"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/AboutPage"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="20px"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_above="@+id/MainActivity"
         android:layout_centerHorizontal="true"
         android:id="@+id/space" />
