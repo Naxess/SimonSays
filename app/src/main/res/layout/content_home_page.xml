@@ -17,43 +17,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/titleimage"
-        android:layout_above="@+id/MainActivity" />
+        android:id="@+id/imageView"
+        android:layout_above="@+id/space"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play"
         android:background="#ffffff"
         android:id="@+id/MainActivity"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/ScorePage"
-        android:layout_alignStart="@+id/ScorePage" />
+        android:layout_above="@+id/ScorePage"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scores"
         android:background="#ffffff"
         android:id="@+id/ScorePage"
-        android:layout_below="@+id/MainActivity"
+        android:layout_above="@+id/AboutPage"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About Us"
         android:background="#ffffff"
         android:id="@+id/AboutPage"
-        android:layout_below="@+id/ScorePage"
-        android:layout_alignLeft="@+id/ScorePage"
-        android:layout_alignStart="@+id/ScorePage" />
+        android:layout_above="@+id/homeClose"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Exit Game"
         android:background="#ffffff"
         android:id="@+id/homeClose"
-        android:layout_below="@+id/AboutPage"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:layout_above="@+id/MainActivity"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/space" />
+
 </RelativeLayout>
