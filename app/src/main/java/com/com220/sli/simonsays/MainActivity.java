@@ -2,6 +2,7 @@ package com.com220.sli.simonsays;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity
 
     Boolean gameStart = false;  //CONTROLS WHETHER THE USER CAN START INPUTTING (STARTS THE GAME)
     Boolean keepGoing = true;
+    Boolean sound = true;
 
     int scoreLevel = 0;
     int puzzlePiece = 0;
@@ -358,10 +360,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        AudioManager audioManager = (AudioManager)this.getSystemService(Context.AUDIO_SERVICE);
         int id = item.getItemId();
 
         if (id == R.id.action_settings)
         {
+            if(item.isChecked() == true)
+            {
+                audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+                item.setChecked(false);
+                sound = false;
+            }
+            else if(item.isChecked() == false)
+            {
+                audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+                item.setChecked(true);
+                sound = true;
+            }
             return true;
         }
 
