@@ -1,8 +1,11 @@
 package com.com220.sli.simonsays;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity
 
     TextView score;
     TextView textView;
+    TextView hiScore;
 
     ArrayList<Integer> randomSequence = new ArrayList<Integer>(); //STORES THE RANDOMLY GENERATED NUMBERS; DETERMINES THE ORDER OF THE ANIMATION OF THE BUTTONS
     ArrayList<Integer> userSequence = new ArrayList<Integer>(); //STORES THE USER'S INPUTS FOR COMPARISON TO THE ARRAYLIST 'SEQUENCE'
@@ -46,6 +50,19 @@ public class MainActivity extends AppCompatActivity
     int puzzlePiece = 0;
     int tempUS = 0;
     int tempRS = 0;
+
+    public static void saveData(String key, String value, Context context)
+    {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public static String getData(String key, Context context)
+    {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString(key, null);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -74,6 +91,7 @@ public class MainActivity extends AppCompatActivity
 
         score = (TextView) findViewById(R.id.score);
         textView = (TextView)findViewById(R.id.textView);
+        hiScore = (TextView)findViewById(R.id.newHighScore);
 
         final Animation blink = new AlphaAnimation(1,0);    //ANIMATION
         blink.setDuration(800); //ANIMATION DURATION FOR EACH BUTTON
@@ -288,6 +306,8 @@ public class MainActivity extends AppCompatActivity
                         {
                             puzzlePiece = 0;
                             scoreLevel++;
+                            saveData("saveFile", scoreLevel + "", getApplicationContext());
+                            hiScore.setText(scoreLevel + "");
                             randomSequence.clear();
                             randomSequenceString.setLength(0);
                             userSequence.clear();
