@@ -23,10 +23,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
         android:textSize="30dp"
         android:textColor="#ffc914"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_play_clear"
         android:id="@+id/MainActivity"
         android:typeface="sans"
         android:textStyle="bold"
@@ -37,10 +36,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scores"
         android:textSize="30dp"
         android:textColor="#ffc914"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_scores_clear"
         android:id="@+id/ScorePage"
         android:textStyle="bold"
         android:layout_below="@+id/MainActivity"
@@ -49,10 +47,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About Us"
         android:textSize="30dp"
         android:textColor="#ffc914"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_aboutus_clear"
         android:id="@+id/AboutPage"
         android:textStyle="bold"
         android:layout_below="@+id/ScorePage"
@@ -61,12 +58,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exit Game"
         android:textSize="30dp"
         android:textColor="#ffc914"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_exit_clear"
         android:id="@+id/homeClose"
-
         android:textStyle="bold"
         android:layout_below="@+id/AboutPage"
         android:layout_centerHorizontal="true" />

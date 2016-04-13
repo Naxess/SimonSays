@@ -308,7 +308,39 @@ public class MainActivity extends AppCompatActivity
                         {
                             puzzlePiece = 0;
                             scoreLevel++;
-                            saveData("saveFile", scoreLevel + "", getApplicationContext());
+                            saveData("currentScore", scoreLevel + "", getApplicationContext());
+                            try
+                            {
+                                String highScoreString = getData("savedHighScore", getApplicationContext());
+                                int highScore = Integer.parseInt(highScoreString);
+                                if (scoreLevel >= highScore)
+                                {
+                                    highScore = scoreLevel;
+                                    saveData("savedHighScore", highScore + "", getApplicationContext());
+                                }
+                            }
+                            catch(NullPointerException e)
+                            {
+                                saveData("savedHighScore", 0 + "", getApplicationContext());
+                                String highScoreString = getData("savedHighScore", getApplicationContext());
+                                int highScore = Integer.parseInt(highScoreString);
+                                if (scoreLevel >= highScore)
+                                {
+                                    highScore = scoreLevel;
+                                    saveData("savedHighScore", highScore + "", getApplicationContext());
+                                }
+                            }
+                            catch(NumberFormatException e)
+                            {
+                                saveData("savedHighScore", 0 + "", getApplicationContext());
+                                String highScoreString = getData("savedHighScore", getApplicationContext());
+                                int highScore = Integer.parseInt(highScoreString);
+                                if (scoreLevel >= highScore)
+                                {
+                                    highScore = scoreLevel;
+                                    saveData("savedHighScore", highScore + "", getApplicationContext());
+                                }
+                            }
                             hiScore.setText(scoreLevel + "");
                             randomSequence.clear();
                             randomSequenceString.setLength(0);

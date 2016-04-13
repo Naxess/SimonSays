@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 public class ScorePage extends AppCompatActivity
 {
-    int highScore = 0;
-    int currentScore = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +39,13 @@ public class ScorePage extends AppCompatActivity
         });
 
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String value = sp.getString("saveFile", "default_value");
+        String lastScoreString = sp.getString("currentScore", "0");
+        String highScoreString = sp.getString("savedHighScore", "0");
+
         TextView currentScoreText = (TextView)findViewById(R.id.last_score);
         TextView highScoreText = (TextView)findViewById(R.id.high_score);
 
-        int currentScore = Integer.parseInt(value);
-
-        currentScoreText.setText(currentScore + "");
-        if(currentScore > highScore)
-        {
-            highScore = currentScore;
-            highScoreText.setText(highScore + "");
-        }
+        currentScoreText.setText(lastScoreString);
+        highScoreText.setText(highScoreString);
     }
 }
