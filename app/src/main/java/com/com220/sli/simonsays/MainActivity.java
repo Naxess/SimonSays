@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity
     Boolean keepGoing = true;
     Boolean sound = true;
 
+    int miniScore = 0;
     int scoreLevel = 0;
     int puzzlePiece = 0;
     int tempUS = 0;
@@ -113,10 +114,10 @@ public class MainActivity extends AppCompatActivity
             {
                 randomSequence.clear();   //RESETS THE ARRAYLIST SEQUENCE'S CONTENTS
                 randomSequenceString.setLength(0); //RESETS THE STRINGBUILDER'S STRINGADD CONTENTS
-                score.setText(0 + "");
+                //score.setText(0 + "");
                 userSequence.clear();
                 userSequenceString.setLength(0);
-                textView.setText("Score: ");
+                //textView.setText("Score: ");
                 start.setText("Start");
                 keepGoing = true;
 
@@ -277,15 +278,17 @@ public class MainActivity extends AppCompatActivity
                 numUserInputs = 0;
                 gameStart = false;
                 scoreLevel = 0;
-                start.setText("Start New Game");
+                start.setText("You lost. Start New Game?");
                 score.setText(0 + "");
-                textView.setText("Score: ");
+                //textView.setText("Score: ");
                 soundSix.start();
                 keepGoing = false;
             }
             if(keepGoing == true)
             {
                 userSequenceString.append(buttonNumber + "");
+                miniScore++;
+                score.setText(miniScore + "");
                 numUserInputs++;
                 //textView.setText(userSequenceString.toString());
             }
@@ -350,9 +353,9 @@ public class MainActivity extends AppCompatActivity
                             numUserInputs = 0;
                             numOfItems++;
                             gameStart = false;
-                            start.setText("Start Level: " + (scoreLevel + 1));
-                            score.setText(0 + "");
-                            textView.setText("Score: ");
+                            start.setText("Good job! Start Level " + (scoreLevel + 1) + "?");
+                            //score.setText(0 + "");
+                            //textView.setText("Score: ");
                             soundFive.start();
                             break;
                         }
@@ -368,9 +371,9 @@ public class MainActivity extends AppCompatActivity
                         numUserInputs = 0;
                         gameStart = false;
                         scoreLevel = 0;
-                        start.setText("Start New Game");
-                        score.setText(0 + "");
-                        textView.setText("Score: ");
+                        start.setText("You lost. Start New Game?");
+                        //score.setText(0 + "");
+                        //textView.setText("Score: ");
                         soundSix.start();
                         break;
                     }
@@ -400,13 +403,13 @@ public class MainActivity extends AppCompatActivity
         {
             if(item.isChecked() == true)
             {
-                audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+                audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                 item.setChecked(false);
                 sound = false;
             }
             else if(item.isChecked() == false)
             {
-                audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+                audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                 item.setChecked(true);
                 sound = true;
             }
