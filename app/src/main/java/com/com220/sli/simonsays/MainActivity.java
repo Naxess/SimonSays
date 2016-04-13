@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
         //blink.setRepeatCount(Animation.ABSOLUTE); //or INFINITE
         //blink.setRepeatMode(Animation.REVERSE);
 
-        final MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smb_coin);
+        final MediaPlayer soundOne = MediaPlayer.create(this, R.raw.smb_coin2);
         final MediaPlayer soundTwo = MediaPlayer.create(this, R.raw.smb_fireball);
         final MediaPlayer soundThree = MediaPlayer.create(this, R.raw.smb_stomp);
         final MediaPlayer soundFour = MediaPlayer.create(this, R.raw.smb_kick);
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onFinish()  //WHEN THE SEQUENCE IS DONE ANIMATING
                     {
-                        score.setText(randomSequenceString.toString()); //OUTPUTS THE SEQUENCE OF NUMBERS GENERATED TO THE TEXTVIEW SCORE
+                        //score.setText(randomSequenceString.toString()); //OUTPUTS THE SEQUENCE OF NUMBERS GENERATED TO THE TEXTVIEW SCORE; DRIVER CODE
                         gameStart = true;   //ENABLES THE USER TO START INPUTTING VALUES
                     }
                 }.start();
@@ -268,6 +268,7 @@ public class MainActivity extends AppCompatActivity
             if(randomSequence.get(numUserInputs).intValue() != buttonNumber)
             {
                 puzzlePiece = 0;
+                saveData("currentScore", scoreLevel + "", getApplicationContext());
                 randomSequence.clear();
                 randomSequenceString.setLength(0);
                 userSequence.clear();
@@ -286,7 +287,7 @@ public class MainActivity extends AppCompatActivity
             {
                 userSequenceString.append(buttonNumber + "");
                 numUserInputs++;
-                textView.setText(userSequenceString.toString());
+                //textView.setText(userSequenceString.toString());
             }
         }
         else    //User can click the buttons but no input occurs
