@@ -51,7 +51,7 @@ public class ScorePage extends AppCompatActivity
         if(currentScore > highScore)
         {
             highScore = currentScore;
-            highScoreText.setText(highScore);
+            highScoreText.setText(highScore + "");
         }
     }
 }
