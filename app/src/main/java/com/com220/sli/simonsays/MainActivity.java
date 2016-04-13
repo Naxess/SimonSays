@@ -349,7 +349,7 @@ public class MainActivity extends AppCompatActivity
                             numUserInputs = 0;
                             numOfItems++;
                             gameStart = false;
-                            start.setText("Start Level: " + scoreLevel);
+                            start.setText("Start Level: " + (scoreLevel + 1));
                             score.setText(0 + "");
                             textView.setText("Score: ");
                             soundFive.start();
